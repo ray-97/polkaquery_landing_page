@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -16,10 +19,33 @@
             -webkit-text-fill-color: transparent;
         }
     </style>
+<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+<link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
 </head>
 <body class="bg-gray-900 text-gray-200 antialiased">
 
-    <div class="relative isolate overflow-hidden pt-14">
+    <header class="fixed inset-x-0 top-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="text-2xl font-bold gradient-text">Polkaquery</span>
+                </a>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-12">
+                <a href="#home" class="text-sm font-semibold leading-6 text-gray-200 hover:text-indigo-400">Home</a>
+                <a href="#features" class="text-sm font-semibold leading-6 text-gray-200 hover:text-indigo-400">Features</a>
+                <a href="#sample-queries" class="text-sm font-semibold leading-6 text-gray-200 hover:text-indigo-400">Examples</a>
+                <a href="#contact" class="text-sm font-semibold leading-6 text-gray-200 hover:text-indigo-400">Contact</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <button id="show-demo-btn-nav" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg text-sm transition-transform transform hover:scale-105">
+                    Try a Demo Query
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="home" class="relative isolate overflow-hidden pt-14">
         <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
                 <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -32,7 +58,7 @@
         </div>
     </div>
 
-    <div class="py-20 sm:py-32">
+    <div id="features" class="py-20 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-indigo-400">Built for the On-Chain Economy</h2>
@@ -136,7 +162,7 @@
     <div id="demo-modal" class="fixed inset-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="bg-gray-800 border border-gray-700 rounded-2xl shadow-2xl max-w-2xl w-full transform transition-all opacity-0 translate-y-4" id="modal-content">
             <div class="p-8 md:p-12">
-                <form action="https://send.pageclip.co/YourUniqueCode/polkaquery-waitlist" class="pageclip-form" method="POST">
+                <form action="https://send.pageclip.co/xzryO5X7ypghcg9uKdbGc1hqe4eDmztw/polkaquery_interest" class="pageclip-form" method="POST">
                     <div class="space-y-8">
                         <div>
                             <label for="contact" class="block text-sm font-medium text-gray-300 mb-2">Email or Telegram</label>
@@ -183,23 +209,41 @@
 
     <script>
         const showDemoBtn = document.getElementById('show-demo-btn');
+        const showDemoBtnNav = document.getElementById('show-demo-btn-nav');
         const demoModal = document.getElementById('demo-modal');
         const modalContent = document.getElementById('modal-content');
 
-        showDemoBtn.addEventListener('click', () => {
+        function openModal() {
             demoModal.classList.remove('hidden');
             setTimeout(() => {
                 modalContent.classList.remove('opacity-0', 'translate-y-4');
             }, 10);
-        });
+        }
+
+        function closeModal() {
+            modalContent.classList.add('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                demoModal.classList.add('hidden');
+            }, 200);
+        }
+
+        showDemoBtn.addEventListener('click', openModal);
+        showDemoBtnNav.addEventListener('click', openModal);
 
         demoModal.addEventListener('click', (e) => {
             if (e.target === demoModal) {
-                modalContent.classList.add('opacity-0', 'translate-y-4');
-                setTimeout(() => {
-                    demoModal.classList.add('hidden');
-                }, 200);
+                closeModal();
             }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 
