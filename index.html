@@ -288,6 +288,7 @@
         function setRedirectUrl() {
             const currentUrl = window.location.origin + window.location.pathname;
             redirectUrlInput.value = currentUrl + '?submitted=true';
+            console.log('Redirect URL set to:', redirectUrlInput.value);
         }
 
         function openModal() {
