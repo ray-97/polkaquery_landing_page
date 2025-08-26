@@ -223,7 +223,7 @@
     </footer>
 
     <div id="demo-modal" class="fixed inset-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-        <div class="bg-gray-800 border border-gray-700 rounded-2xl shadow-2xl max-w-2xl w-full transform transition-all opacity-0 translate-y-4" id="modal-content">
+        <div class="bg-gray-800 border border-gray-700 rounded-2xl shadow-2xl max-w-2xl w-full transform transition-all opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto" id="modal-content">
             <div class="p-8 md:p-12">
                 <form action="https://send.pageclip.co/xzryO5X7ypghcg9uKdbGc1hqe4eDmztw/polkaquery_interest" class="pageclip-form" method="post">
                     <!-- Fixed redirect URL - use current page URL dynamically -->
@@ -258,6 +258,36 @@
                                     <input type="checkbox" name="interest" value="airdrop_criteria" class="h-5 w-5 rounded border-gray-500 bg-gray-600 text-indigo-500 focus:ring-indigo-600">
                                     <span class="text-gray-300">Airdrop Eligibility Criteria</span>
                                 </label>
+                            </div>
+                            <div class="mt-4">
+                                <label for="other_interest" class="block text-sm font-medium text-gray-300 mb-2">Other (please specify)</label>
+                                <input type="text" id="other_interest" name="other_interest" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Your custom interest">
+                            </div>
+                        </div>
+
+                        <div class="pt-6">
+                            <h3 class="text-sm font-medium text-gray-300 mb-4">How will you use Polkaquery for Polkadot ecosystem activities?</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label class="flex items-center space-x-3 bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600">
+                                    <input type="checkbox" name="ecosystem_use" value="governance_treasury" class="h-5 w-5 rounded border-gray-500 bg-gray-600 text-indigo-500 focus:ring-indigo-600">
+                                    <span class="text-gray-300">Governance & Treasury</span>
+                                </label>
+                                <label class="flex items-center space-x-3 bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600">
+                                    <input type="checkbox" name="ecosystem_use" value="staking_validator" class="h-5 w-5 rounded border-gray-500 bg-gray-600 text-indigo-500 focus:ring-indigo-600">
+                                    <span class="text-gray-300">Staking & Validator Analysis</span>
+                                </label>
+                                <label class="flex items-center space-x-3 bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600">
+                                    <input type="checkbox" name="ecosystem_use" value="nft_assethub" class="h-5 w-5 rounded border-gray-500 bg-gray-600 text-indigo-500 focus:ring-indigo-600">
+                                    <span class="text-gray-300">NFT & AssetHub Activity</span>
+                                </label>
+                                <label class="flex items-center space-x-3 bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600">
+                                    <input type="checkbox" name="ecosystem_use" value="parachain_crowdloan" class="h-5 w-5 rounded border-gray-500 bg-gray-600 text-indigo-500 focus:ring-indigo-600">
+                                    <span class="text-gray-300">Parachain & Crowdloan Data</span>
+                                </label>
+                            </div>
+                            <div class="mt-4">
+                                <label for="other_ecosystem_use" class="block text-sm font-medium text-gray-300 mb-2">Other (please specify)</label>
+                                <input type="text" id="other_ecosystem_use" name="other_ecosystem_use" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Your custom use case">
                             </div>
                         </div>
                     </div>
